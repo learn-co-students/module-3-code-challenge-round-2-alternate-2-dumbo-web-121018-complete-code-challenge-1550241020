@@ -46,8 +46,27 @@ document.addEventListener("DOMContentLoaded", function() {
         studentForm.innerHTML = `<p>${student.name}</p>
         <p>${student.class_year}</p>
         <p>${student.percentage}</p>
-        <input text="Percentage" placeholder="${student.percentage}"><button class='edit-button'>Edit</button>`
-        console.log(studentForm)
+        <input class="percentage" id="percentage" type="percentage" value="${student.percentage}"><button class='edit-button'>Edit</button>`
+        studentForm.addEventListener('click', e => {
+          // console.log(e.target.classList.contains('percentage').value)
+          const percentage = parseInt(e.target.value)
+          if (e.target.classList.contains('edit-button')) {
+            fetch(`https://sheltered-stream-73510.herokuapp.com/users/141/students/${studentId}`, {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                percentage: `${percentage}`
+              })
+            })
+              .then(res => res.json())
+              .then(student => {
+                li.innerText = percentage
+              })
+          }
+        })
       })
     })
 });
