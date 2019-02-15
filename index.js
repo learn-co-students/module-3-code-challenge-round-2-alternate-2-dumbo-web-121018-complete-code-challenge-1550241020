@@ -64,10 +64,12 @@ function displayCourseProfile(course) {
 
       <h3>Class Year: ${student.class_year}</h3>
       <h3>Percentage: ${student.percentage}</h3>
+
       <button data-id="${student.id}" id="edit-percentage" class="edit-btn">Edit</button>
     </li> `
   }
 
+// data id = "percentage-${percentage.id}"
 // function updateStudent(e) {
 //   console.log(e.target.dataset.id)
 //   let id = e.target.dataset.id
@@ -83,10 +85,16 @@ function displayCourseProfile(course) {
 //       })
 //     })
 //     .then(res => res.json())
-// 
+//
 //   }
 // }
 
 //need to find percengtage location to edit the text for the percentage box
 //using the dataset - id and value for percentage so i can update
 //if i had more time i know what needs to be done
+//the new percentage is based on user input
+//initially i had an event listener on studengt name and then wantet to locate the student form where
+
+//the editing perntage would take place but i was running out of time and
+//figure i could edit straight from gthe Student profile page to show that i know patch
+// the issue is with the percentage id for editing the form which i know how to do
